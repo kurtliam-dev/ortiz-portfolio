@@ -1,0 +1,437 @@
+/* =========================================================
+   GLOBAL LAYOUT
+   ========================================================= */
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-visual-col {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: start;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 380px;
+  position: relative;
+}
+
+
+/* =========================================================
+   PROJECT HOVER EFFECT
+   ========================================================= */
+
+.project-visual {
+  transition: all 0.3s ease !important;
+  cursor: pointer;
+}
+
+.project-visual:hover {
+  transform: translateY(-8px) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5) !important;
+}
+
+.project-visual:hover .project-overlay {
+  opacity: 1 !important;
+}
+
+
+/* =========================================================
+   PROJECT DIVIDER
+   Desktop only
+   ========================================================= */
+
+.project-grid::after {
+  content: "";
+  position: absolute;
+  top: 32px;
+  bottom: 32px;
+  left: 50%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+
+/* =========================================================
+   NAVBAR HOVER
+   ========================================================= */
+
+.nav-menu a {
+  color: #6b6b7d;
+  transition: color 0.2s ease;
+}
+
+.nav-menu a:hover {
+  color: #ededf2;
+}
+
+.nav-link:hover {
+  color: #ededf2 !important;
+}
+
+
+/* =========================================================
+   LET'S TALK BUTTON
+   ========================================================= */
+
+.talk-button {
+  transition: all 0.2s ease;
+}
+
+.talk-button:hover {
+  transform: translateY(-2px);
+  background: #19d8b5 !important;
+  box-shadow: 0 6px 20px rgba(0, 196, 160, 0.25);
+}
+
+
+/* =========================================================
+   VIEW MY WORK BUTTON
+   ========================================================= */
+
+.work-button {
+  transition: all 0.2s ease;
+}
+
+.work-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 196, 160, 0.2);
+}
+
+
+/* =========================================================
+   LET'S CONNECT BUTTON
+   ========================================================= */
+
+.connect-button {
+  transition: all 0.2s ease;
+}
+
+.connect-button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+
+/* =========================================================
+   WHAT I DO CARDS
+   ========================================================= */
+
+.what-i-do-card {
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.what-i-do-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   PROJECT TAGS
+   ========================================================= */
+
+.project-tag {
+  display: inline-block;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.project-tag:hover {
+  color: #00c4a0 !important;
+  border-color: rgba(0, 196, 160, 0.25) !important;
+}
+
+
+/* =========================================================
+   VIEW PROJECT BUTTON
+   ========================================================= */
+
+.project-button {
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.project-button:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #00c4a0 !important;
+  border-color: rgba(0, 196, 160, 0.25) !important;
+}
+
+
+/* =========================================================
+   DESIGN MINI CARDS
+   ========================================================= */
+
+.design-mini-card {
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.design-mini-card:hover {
+  border-color: rgba(0, 196, 160, 0.35) !important;
+  color: #00c4a0 !important;
+  box-shadow: 0 0 18px rgba(0, 196, 160, 0.08);
+}
+
+
+/* =========================================================
+   HERO MINI CARDS
+   ========================================================= */
+
+.hero-mini-card {
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.hero-mini-card:hover {
+  color: #00c4a0 !important;
+  border-color: rgba(0, 196, 160, 0.25) !important;
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   NAVBAR RESPONSIVE
+   ========================================================= */
+
+.desktop-nav {
+  display: flex;
+}
+
+.mobile-menu-button {
+  display: none !important;
+}
+
+/* =========================================================
+   DESIGN PLAYGROUND
+   ========================================================= */
+
+.design-project-grid::after {
+  content: "";
+  position: absolute;
+  top: 32px;
+  bottom: 32px;
+  left: 50%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* -----------------------------------------
+     NAVBAR
+     ----------------------------------------- */
+
+  .desktop-nav {
+    display: none !important;
+  }
+
+  .mobile-menu-button {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1001;
+  }
+
+
+  /* -----------------------------------------
+     HERO
+     ----------------------------------------- */
+
+  .hero-section {
+    min-height: auto !important;
+    padding: 125px 20px 70px !important;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+    width: 100% !important;
+  }
+
+  .hero-visual-col {
+    display: none !important;
+  }
+
+  .hero-buttons {
+    flex-wrap: nowrap !important;
+    width: 100%;
+  }
+
+  .hero-buttons button {
+    flex: 1;
+    white-space: nowrap;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  .hero-tech-list {
+    width: 100%;
+  }
+
+
+  /* -----------------------------------------
+     ABOUT
+     ----------------------------------------- */
+
+  .about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 48px !important;
+  }
+
+
+  /* -----------------------------------------
+     SELECTED WORKS / PROJECTS
+     
+     IMPORTANT:
+     Desktop uses a 2-column grid with
+     alternating image/info order.
+
+     Mobile switches completely to a
+     vertical FLEX layout so every project
+     becomes:
+
+     IMAGE
+     INFO
+
+     IMAGE
+     INFO
+
+     IMAGE
+     INFO
+     ----------------------------------------- */
+
+  .project-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 36px !important;
+    min-height: unset !important;
+    width: 100% !important;
+  }
+
+  /* Hide desktop center divider on mobile */
+  .project-grid::after {
+    display: none !important;
+  }
+
+  /* Screenshot always first */
+  .project-grid .project-image {
+    order: 0 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* Description always second */
+  .project-grid .project-info {
+    order: 1 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+
+  /* -----------------------------------------
+     STACK / PROCESS
+     ----------------------------------------- */
+
+  .stack-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .process-horizontal {
+    display: none !important;
+  }
+
+  .process-vertical {
+    display: flex !important;
+    flex-direction: column;
+  }
+
+    .design-project-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 36px !important;
+    min-height: unset !important;
+  }
+
+  .design-project-grid::after {
+    display: none !important;
+  }
+
+  .design-project-image {
+    order: 0 !important;
+    width: 100% !important;
+  }
+
+  .design-project-info {
+    order: 1 !important;
+    width: 100% !important;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+  .hero-buttons {
+    flex-wrap: wrap !important;
+  }
+
+  .hero-buttons button {
+    flex: 1 1 100%;
+  }
+}
+
