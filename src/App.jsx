@@ -2499,8 +2499,14 @@ function Footer() {
             <a
               key={link}
               href={
+                link === "GitHub" 
+                  ? "https://github.com/kurtliam-dev" 
+                  :
+                link === "LinkedIn" 
+                  ? "https://linkedin.com/in/kurt-ortiz-443451369" 
+                  :  
                 link === "Email"
-                  ? "mailto:your@email.com"
+                  ? "mailto:liam.four12@gmail.com"
                   : "#"
               }
               style={{
