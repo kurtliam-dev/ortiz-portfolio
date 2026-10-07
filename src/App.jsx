@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 import "./App.css"
+import infinityRentalsPage from "./assets/infinity-rentals-page-ss.png"
 
 
 const A = "#00c4a0"
@@ -57,7 +58,7 @@ const card = {
   borderRadius: 10,
 }
 
-function Nav({ scrolled, active }) {
+function Nav({ scrolled, active, setActive }) {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const links = [
@@ -70,6 +71,7 @@ function Nav({ scrolled, active }) {
 
   const handleNavigation = (id) => {
     scrollToSection(id)
+    setActive(id)
     setMenuOpen(false)
   }
 
@@ -128,6 +130,7 @@ function Nav({ scrolled, active }) {
             <button
               key={id}
               onClick={() => handleNavigation(id)}
+              className = "nav-link"
               style={{
                 background: "none",
                 color: active === id ? T1 : T2,
@@ -699,6 +702,8 @@ function ProjectVisual({ index }) {
           alignItems: "center",
           padding: "0 14px",
           gap: 6,
+          position: "relative",
+          zIndex: 2,
         }}
       >
         <span
@@ -737,126 +742,121 @@ function ProjectVisual({ index }) {
         />
       </div>
 
-      {/* Fake website */}
-      <div
-        style={{
-          padding: 28,
-          position: "relative",
-          height: "calc(100% - 38px)",
-        }}
-      >
+      {index === 0 ? (
         <div
-          style={{
-            fontFamily: mono,
-            fontSize: 9,
-            color: config.accent,
-            letterSpacing: "0.12em",
-            marginBottom: 14,
-          }}
-        >
-          {config.label.toUpperCase()}
-        </div>
-
-        <div
-          style={{
-            width: "65%",
-            height: 18,
-            background: "rgba(255,255,255,0.9)",
-            borderRadius: 3,
-            marginBottom: 10,
-          }}
-        />
-
-        <div
-          style={{
-            width: "45%",
-            height: 8,
-            background: "rgba(255,255,255,0.18)",
-            borderRadius: 3,
-            marginBottom: 28,
-          }}
-        />
-
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: 10,
-          }}
-        >
-          {[1, 2, 3].map((item) => (
-            <div
-              key={item}
-              style={{
-                height: 110,
-                background: "rgba(255,255,255,0.05)",
-                border: `1px solid rgba(255,255,255,0.08)`,
-                borderRadius: 6,
-                padding: 12,
-              }}
-            >
-              <div
-                style={{
-                  width: "70%",
-                  height: 7,
-                  background: config.accent,
-                  opacity: 0.6,
-                  borderRadius: 2,
-                  marginBottom: 12,
-                }}
-              />
-
-              <div
-                style={{
-                  width: "90%",
-                  height: 5,
-                  background: "rgba(255,255,255,0.12)",
-                  borderRadius: 2,
-                  marginBottom: 6,
-                }}
-              />
-
-              <div
-                style={{
-                  width: "65%",
-                  height: 5,
-                  background: "rgba(255,255,255,0.08)",
-                  borderRadius: 2,
-                }}
-              />
-            </div>
-          ))}
-        </div>
-
-        {/* Hover overlay */}
-        <div
-          className="project-overlay"
+          className="project-screenshot"
           style={{
             position: "absolute",
-            inset: 0,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            background: "rgba(7,7,9,0.72)",
-            opacity: 0,
-            transition: "opacity 0.25s ease",
+            top: 38,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            overflow: "hidden",
           }}
         >
-          <span
+          <img
+            src={infinityRentalsPage}
+            alt="Infinity Rentals website"
+            style={{
+              display: "block",
+              width: "100%",
+              height: "auto",
+              transition: "transform 8s ease",
+            }}
+          />
+        </div>
+      ) : (
+        <div
+          style={{
+            padding: 28,
+            position: "relative",
+            height: "calc(100% - 38px)",
+          }}
+        >
+          <div
             style={{
               fontFamily: mono,
-              fontSize: 11,
-              color: T1,
-              letterSpacing: "0.08em",
-              border: `1px solid rgba(255,255,255,0.2)`,
-              padding: "10px 14px",
-              borderRadius: 5,
+              fontSize: 9,
+              color: config.accent,
+              letterSpacing: "0.12em",
+              marginBottom: 14,
             }}
           >
-            SCREENSHOT PLACEHOLDER
-          </span>
+            {config.label.toUpperCase()}
+          </div>
+
+          <div
+            style={{
+              width: "65%",
+              height: 18,
+              background: "rgba(255,255,255,0.9)",
+              borderRadius: 3,
+              marginBottom: 10,
+            }}
+          />
+
+          <div
+            style={{
+              width: "45%",
+              height: 8,
+              background: "rgba(255,255,255,0.18)",
+              borderRadius: 3,
+              marginBottom: 28,
+            }}
+          />
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gap: 10,
+            }}
+          >
+            {[1, 2, 3].map((item) => (
+              <div
+                key={item}
+                style={{
+                  height: 110,
+                  background: "rgba(255,255,255,0.05)",
+                  border: `1px solid rgba(255,255,255,0.08)`,
+                  borderRadius: 6,
+                  padding: 12,
+                }}
+              >
+                <div
+                  style={{
+                    width: "70%",
+                    height: 7,
+                    background: config.accent,
+                    opacity: 0.6,
+                    borderRadius: 2,
+                    marginBottom: 12,
+                  }}
+                />
+
+                <div
+                  style={{
+                    width: "90%",
+                    height: 5,
+                    background: "rgba(255,255,255,0.12)",
+                    borderRadius: 2,
+                    marginBottom: 6,
+                  }}
+                />
+
+                <div
+                  style={{
+                    width: "65%",
+                    height: 5,
+                    background: "rgba(255,255,255,0.08)",
+                    borderRadius: 2,
+                  }}
+                />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }
@@ -865,11 +865,12 @@ function Projects() {
   const projects = [
     {
       num: "01",
-      title: "UI/UX",
+      title: "Infinity Rentals",
       category: "Web Development · UI/UX · GoHighLevel",
       description:
-        "A premium digital experience designed around a sophisticated rental brand, combining visual design, responsive layouts, and business-focused functionality.",
+        "A premium car rental website built for a luxury rental brand, featuring responsive design, vehicle listings, and a streamlined booking experience.",
       tags: ["UI/UX", "Web Design", "GoHighLevel"],
+      link: "https://infinityrentals.co/home",
     },
     {
       num: "02",
@@ -1057,7 +1058,10 @@ function Projects() {
                     ))}
                   </div>
 
-                  <button
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="project-button"
                     style={{
                       background: "none",
@@ -1068,10 +1072,12 @@ function Projects() {
                       fontFamily: sans,
                       fontSize: 13,
                       cursor: "pointer",
+                      textDecoration: "none",
+                      display: "inline-block",
                     }}
                   >
                     View Project →
-                  </button>
+                  </a>
                 </div>
               </div>
             )
@@ -2570,34 +2576,6 @@ function App() {
     }
   }, [])
 
-  useEffect(() => {
-    const sections = ["home", "projects", "designs", "about", "contact"]
-
-    const observers = []
-
-    sections.forEach((id) => {
-      const element = document.getElementById(id)
-
-      if (!element) return
-
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setActive(id)
-          }
-        },
-        { threshold: 0.3 },
-      )
-
-      observer.observe(element)
-      observers.push(observer)
-    })
-
-    return () => {
-      observers.forEach((observer) => observer.disconnect())
-    }
-  }, [])
-
   return (
     <> 
       <div
@@ -2608,7 +2586,7 @@ function App() {
           fontFamily: sans,
         }}
       >
-        <Nav scrolled={scrolled} active={active} />
+        <Nav scrolled={scrolled} active={active} setActive={setActive} />
 
         <main>
           <div className="fade-in-up">

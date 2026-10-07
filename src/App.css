@@ -1,6 +1,13 @@
 /* =========================================================
    GLOBAL LAYOUT
    ========================================================= */
+.nav-link {
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #ededf2 !important;
+}
 
 .hero-grid {
   display: grid;
@@ -433,5 +440,9 @@
   .hero-buttons button {
     flex: 1 1 100%;
   }
+}
+
+.project-screenshot:hover img {
+  transform: translateY(calc(-100% + 322px));
 }
 
